@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thoughts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                   Thoughts
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <a href="{% url 'thoughts:enter' %}">Add new thought</a>
+                    </div>
+                </div>
+            </article>
+        <br>
+        <hr>
+
+            {% for thought in thoughts %}
+
+                <h4>{{ thought.title }}</h4>
+
+                <article class="media">
+
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>{{ thought.added_on }}</strong>
+                                    <br> {{ thought.content }}
+                                </p>
+                            </div>
+                        </div>
+                </article>  <br>
+
+
+            {% endfor %}
+
+
+
+
+
+        </div>
+
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>
